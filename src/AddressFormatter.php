@@ -31,7 +31,7 @@ class AddressFormatter
      * @var \Libreworks\Microformats\GeoFormatter
      */
     private $geoFormatter;
-    
+
     /**
      * Creates a new AddressFormatter.
      *
@@ -69,6 +69,6 @@ class AddressFormatter
         if ($geo !== null) {
             $tags[] = '<span class="p-geo">' . $this->geoFormatter->format($geo) . '</span>';
         }
-        return '<span class="h-adr">' . implode(' ', $fields) . '</span>';
+        return '<span class="h-adr">' . implode(' ', $tags) . '</span>';
     }
 }
