@@ -19,6 +19,8 @@
  */
 namespace Libreworks\Microformats;
 
+use League\Period\Period;
+
 /**
  * An event.
  *
@@ -36,7 +38,7 @@ class Event
      */
     private $summary;
     /**
-     * @var \Libreworks\Microformats\DateRange
+     * @var \League\Period\Period
      */
     private $date;
     /**
@@ -55,19 +57,19 @@ class Event
      * @var \Libreworks\Microformats\Location
      */
     private $location;
-    
+
     /**
      * Creates a new event.
      *
      * @param string $name The name or title
      * @param string $summary The summary
-     * @param \Libreworks\Microformats\DateRange $date The date range
+     * @param \League\Period\Period $date The date range
      * @param string $description A more detailed descripton of the event
      * @param string $url The permalink
      * @param string $category The category/tag
      * @param \Libreworks\Microformats\Location $location The location
      */
-    public function __construct($name, $summary = null, DateRange $date = null, $description = null, $url = null, $category = null, Location $location = null)
+    public function __construct($name, $summary = null, Period $date = null, $description = null, $url = null, $category = null, Location $location = null)
     {
         $this->name = trim($name);
         $this->summary = $summary === null ? null : trim($summary);
@@ -101,7 +103,7 @@ class Event
     /**
      * Gets the date range.
      *
-     * @return \Libreworks\Microformats\DateRange the date range or null
+     * @return \League\Period\Period the date range or null
      */
     public function getDate()
     {

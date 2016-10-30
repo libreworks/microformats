@@ -19,6 +19,8 @@
  */
 namespace Libreworks\Microformats;
 
+use League\Period\Period;
+
 /**
  * A resume skill.
  *
@@ -40,16 +42,16 @@ class Skill
      */
     private $rating;
     /**
-     * @var \Libreworks\Microformats\DateRange[]
+     * @var \League\Period\Period[]
      */
     private $dates = [];
-    
+
     /**
      * Creates a new skill.
      *
      * @param \Libreworks\Microformats\Tag|string $name The name of the skill
      * @param int $rating Level of expertise, 1–4 (beginner, intermediate, advanced, expert)
-     * @param \Libreworks\Microformats\DateRange[] $dates The range of dates
+     * @param \League\Period\Period[] $dates The range of dates
      */
     public function __construct($name, $rating = null, array $dates = [])
     {
@@ -60,7 +62,7 @@ class Skill
         }
         $this->rating = $rating === null ? null : (int)$rating;
         foreach ($dates as $v) {
-            if ($v instanceof DateRange) {
+            if ($v instanceof Period) {
                 $this->dates[] = $v;
             }
         }
@@ -99,7 +101,7 @@ class Skill
     /**
      * Gets the dates.
      *
-     * @return \Libreworks\Microformats\DateRange[] the dates
+     * @return \League\Period\Period[] the dates
      */
     public function getDates()
     {
