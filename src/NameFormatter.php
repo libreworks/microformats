@@ -54,6 +54,6 @@ class NameFormatter
         if (strlen($maiden) > 0) {
             $tags[] = '(née <span class="p-maiden-name">' . htmlspecialchars($names['p-maiden-name']) . '</span>)';
         }
-        return '<span class="p-name">' . $tags . '</span>';
+        return '<span class="p-name">' . implode(' ', $tags) . '</span>';
     }
 }
